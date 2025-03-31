@@ -129,3 +129,39 @@ h5{
     font-size: 13px;
     font-weight: 700;
 }
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    color: red;
+}
+
+.Menu{
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Menu ul{
+    margin-top: 20px;
+list-style: none;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.resDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+}
+.resDetails img{
+    height: 200px;
+    width: 300px;
+}
