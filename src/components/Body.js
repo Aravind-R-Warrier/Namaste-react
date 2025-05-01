@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import RestaurantCard from "./RestaurantCard"
 import ShimmerUi from "./ShimmerUi"
+import { Link } from "react-router"
+import useOnlineStatus from "../utils/useOnlineStatus"
 
 
 
@@ -28,6 +30,7 @@ const Body = () => {
         setfilteredRestaurant(data)
     }
 
+    if(!useOnlineStatus) return (<h1>you are offline check internet!!</h1>)
 
     return (
         <div className="body">
@@ -54,7 +57,7 @@ const Body = () => {
 
                 {listOfRestaurants.length === 0 ? <ShimmerUi /> :
                     filteredRestaurant.map((restaurant) => (
-                        <RestaurantCard key={restaurant.id} res={restaurant} />
+                     <Link style={{textDecoration:'none',color:'black'}}  key={restaurant.id} to={`/restuarant/${restaurant.id}`}><RestaurantCard res={restaurant} /></Link> 
                     ))
                 }
 
