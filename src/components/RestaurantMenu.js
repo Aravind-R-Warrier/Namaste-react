@@ -18,7 +18,8 @@ function RestaurantMenu() {
         (card) => card?.card?.card?.info
     )?.card?.card?.info;
 
-    const { name, cuisines, costForTwo, cloudinaryImageId } = restaurantInfo || {};
+    const { name, cuisines, costForTwo, cloudinaryImageId} = restaurantInfo || {};
+
 
     const menuItems =
         resInfo?.data?.cards
@@ -30,24 +31,22 @@ function RestaurantMenu() {
             .slice(1, 15) || [];
 
     return (
-        <div className="restaurant-menu">
-            <div className="restaurant-header">
-                <img className="restaurant-image" src={conUrl + cloudinaryImageId} alt={name} />
-                <div className="restaurant-details">
-                    <h1 className="restaurant-name">{name}</h1>
+        <div className="restaurant-menu w-[100%] flex h-[100vh] justify-center ">
+            <div className="restaurant-header flex flex-col p-4 my-10 items-center text-justify shadow-2xl h-[90%]">
+                <img className="restaurant-image h-60 w-[300px] shadow-2xl rounded-xl" src={conUrl + cloudinaryImageId} alt={name} />
+                <div className="restaurant-details text-center">
+                    <h1 className="restaurant-name ">{name}</h1>
                     <p className="restaurant-cuisines">{cuisines?.join(", ")}</p>
-                    <p className="restaurant-price">💰 buy two for ₹{costForTwo.slice(0,3)}</p>
+                    <p className=" text-red-500">💰 buy two for ₹{costForTwo.slice(0,3)}</p>
                 </div>
-            </div>
-
-            <div className="menu-container">
+                <div className="menu-container flex flex-col justify-center items-center text-justify">
                 <h2 className="menu-title">🍽 Menu</h2>
-                <ul className="menu-list">
+                <ul className="menu-list flex flex-col justify-center items-center text-justify">
                     {menuItems.length > 0 ? (
                         menuItems.map((item) => (
                             <li className="menu-item" key={item?.id}>
-                                <span className="menu-item-name">{item?.name}</span>
-                                <span className="menu-item-price">₹{(item?.price || item?.defaultPrice) / 100}</span>
+                                <span className="menu-item-name text-gray-700 mr-1.5">{item?.name}</span>
+                                <span className="menu-item-price text-green-400">₹{(item?.price || item?.defaultPrice) / 100}</span>
                             </li>
                         ))
                     ) : (
@@ -55,6 +54,9 @@ function RestaurantMenu() {
                     )}
                 </ul>
             </div>
+            </div>
+
+           
         </div>
     );
 }
