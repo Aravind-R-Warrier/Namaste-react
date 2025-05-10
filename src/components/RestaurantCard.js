@@ -20,7 +20,7 @@ const RestaurantCard = ({ res }) => {
 export const promotedRestaurantCard = (RestaurantCard) => {
     return (props) => (
         <div className="relative">
-            <div className="absolute top-3 left-4 bg-yellow-400 text-black px-2 py-1 text-xs font-bold rounded shadow-md z-10">
+            <div className="absolute top-3 left-4 bg-yellow-200 text-black px-2 py-1 text-xs font-bold rounded shadow-md z-10">
             ⚡  PROMOTED
             </div>
             <RestaurantCard {...props} />
